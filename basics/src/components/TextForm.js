@@ -16,7 +16,8 @@ function TextForm(props) {
       setText(event.target.value);
     }
     return (
-        <div >
+        <>
+        <div className='container'>
             <h1>{props.heading}</h1>
             <div className="mb-3">
                 <textarea className="form-control" id="myText" rows="8" value={text} onChange={onChangeHandler}></textarea>
@@ -24,6 +25,14 @@ function TextForm(props) {
             <button className='btn btn-primary mx-1' onClick={handleUpperCaseClick}>Convert to uppercase</button>
             <button className='btn btn-primary mx-1' onClick={handleLowerCaseClick}>Convert to lowercase</button>
         </div>
+        <div className='container'>
+            <h1>Your text summary -</h1>
+            <p>{text.split(" ").length} word found, and {text.length} characters. </p> 
+            <p>{0.08 * text.split(" ").length} mins to read it.</p>
+            <h2>Preview -</h2>
+            <p>{text}</p>
+        </div>
+        </>
     )
 }
 
