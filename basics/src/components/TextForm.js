@@ -5,6 +5,7 @@ import '../styles/TextForm.css';
 function TextForm(props) {
     const [text, setText] = useState('');
     const [style, setStyle] = useState("normal form-control");
+  
 
     // handle upper case button
     const handleUpperCaseClick = () => {
@@ -42,8 +43,8 @@ function TextForm(props) {
             <div className='container'>
                 <h1>Enter your text here to analyse - </h1>
                 <div className='container my-3'>
-                    <button className={`btn btn-${props.mode === 'dark'? 'light' : 'dark' } mx-1 boldIcon`} onClick={handleBoldClick}>B</button>
-                    <button className={`btn btn-outline-${props.mode === 'dark'? 'light' : 'dark'} mx-1 boldIcon`} onClick={handleItalicClick}>I</button>
+                    <button className={`btn btn-${props.mode === 'dark' ? 'light' : 'dark'} mx-1 boldIcon`} onClick={handleBoldClick}>B</button>
+                    <button className={`btn btn-outline-${props.mode === 'dark' ? 'light' : 'dark'} mx-1 boldIcon`} onClick={handleItalicClick}>I</button>
                 </div>
                 <div className="mb-3">
                     <textarea className={style} id="myText" rows="8" value={text} onChange={onChangeHandler}></textarea>
@@ -60,7 +61,7 @@ function TextForm(props) {
                 <p>{text.split(" ").length} word found, and {text.length} characters. </p>
                 <p>{0.08 * text.split(" ").length} mins to read it.</p>
                 <h2>Preview -</h2>
-                <p>{(text.length > 0) ?text : "Enter something in the textbox above to preview here" }  </p>
+                <p>{(text.length > 0) ? text : "Enter something in the textbox above to preview here"}  </p>
             </div>
         </>
     )
