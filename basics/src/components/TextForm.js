@@ -10,14 +10,18 @@ function TextForm(props) {
     // handle upper case button
     const handleUpperCaseClick = () => {
         setText(text.toUpperCase());
+        props.showAlert("Text is upper case now", "success");
     }
     // handle lower case button
     const handleLowerCaseClick = () => {
         setText(text.toLowerCase());
+        props.showAlert("Text is lower case now", "success");
     }
+
     // handle clear text
     const handleClearText = () => {
         setText("");
+        props.showAlert("Text cleared", "success");
     }
     // handle on change for text area
     const onChangeHandler = (event) => {
@@ -25,18 +29,22 @@ function TextForm(props) {
     }
     const handleBoldClick = () => {
         setStyle("bolder form-control");
+        props.showAlert("Text is bold now", "success");
     }
     const handleItalicClick = () => {
         setStyle("italic form-control");
+        props.showAlert("Text is italic now", "success");
     }
     const handleCopyText = () => {
         let text = document.getElementById("myText");
         console.log(text);
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Copied to clipboard", "success");
     }
     const handleRemoveSpaces = () => {
         let newText = text.split(' ').join('');
         setText(newText);
+        props.showAlert("Spaces have been removed", "success");
     }
     return (
         <>

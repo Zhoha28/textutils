@@ -17,6 +17,9 @@ function App() {
         msg: message,
         typ: typ
     })
+    setTimeout(() => {
+      setAlert(null)
+    }, 1500);
 }
   const toggleMode = () => {
     if (mode === 'light') {
@@ -24,6 +27,7 @@ function App() {
       document.body.style.backgroundColor = '#042743';
       document.body.style.color = 'white';
        showAlert("Dark mode has been enabled", "success");
+  
     }
     else {
       setMode('light');
@@ -43,9 +47,9 @@ function App() {
         <Alert alert={alert}/>
         <div>
           <Routes>
-         
-            <Route path="/" element={<TextForm mode={mode}></TextForm>} />
-            <Route path="/about" element={<About></About>} />
+            {/* exact is used to overcome the partial matching of url by react */}
+            <Route exact path="/" element={<TextForm mode={mode}></TextForm>} />
+            <Route exact path="/about" element={<About></About>} />
 
           </Routes>
           
